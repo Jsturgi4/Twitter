@@ -1,11 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "favor-icon-red.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
+      "filename" : "favor-icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

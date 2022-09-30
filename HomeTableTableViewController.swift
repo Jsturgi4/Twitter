@@ -23,6 +23,13 @@ class HomeTableTableViewController: UITableViewController {
         tableView.refreshControl = myRefreshControl
         
     }
+    //new v p.1
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
+    }
+    
 
     @objc func loadTweets(){
         
@@ -40,6 +47,13 @@ class HomeTableTableViewController: UITableViewController {
             
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
+            
+            
+            
+           // display tweet table view constraint correction
+            //self.tweetTable.rowHeight = UITableView.automaticDimension
+            //self.tweetTable.estimatedRowHeight = 150
+            
             
         }, failure: { (Error) in
             print("nope")
@@ -110,6 +124,14 @@ class HomeTableTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
+        //new v, to know if tweet is currently favorited or not
+        
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        
+        
+        // v old
         
         return cell
     }
